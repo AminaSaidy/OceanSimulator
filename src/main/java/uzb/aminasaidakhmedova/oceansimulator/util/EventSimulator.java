@@ -55,4 +55,16 @@ public class EventSimulator {
         energy -= 10;
         shark.setEnergy(energy);
     }
+
+    private void caughtByHunters(Shark shark) {
+        int energy = shark.getEnergy();
+        int health = shark.getHealth();
+        if (energy > 15) {
+            energy -= 10;
+            health -= 5;
+        } else {
+            energy = 0;
+            health = 0;
+        }
+    }
 }
