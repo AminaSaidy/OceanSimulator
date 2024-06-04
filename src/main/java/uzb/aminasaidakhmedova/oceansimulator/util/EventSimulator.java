@@ -86,6 +86,20 @@ public class EventSimulator {
         checkStatus(shark);
     }
 
+    private void attackBoat(Shark shark) {
+        int energy = shark.getEnergy();
+        int health = shark.getHealth();
+        int eatPeople = (int)(Math.random()*100);
+        if (eatPeople >= 0 && eatPeople <40) {
+            energy -= 6;
+            health += (shark.getFANGS()*5);
+        }
+        shark.setEnergy(energy);
+        shark.setHealth(health);
+        checkEnergy(shark);
+        checkStatus(shark);
+    }
+
     private void caughtByHunters(Shark shark) {
         int energy = shark.getEnergy();
         int health = shark.getHealth();
