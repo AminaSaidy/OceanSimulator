@@ -24,6 +24,7 @@ public class EventSimulator {
             energy = 100;
         }
         shark.setEnergy(energy);
+        checkEnergy(shark);
         checkStatus(shark);
     }
 
@@ -34,6 +35,7 @@ public class EventSimulator {
         health += (shark.getFANGS() * 2);
         shark.setEnergy(energy);
         shark.setHealth(health);
+        checkEnergy(shark);
         checkStatus(shark);
     }
 
@@ -44,6 +46,7 @@ public class EventSimulator {
         health += (shark.getFANGS() * 5);
         shark.setEnergy(energy);
         shark.setHealth(health);
+        checkEnergy(shark);
         checkStatus(shark);
     }
 
@@ -58,6 +61,7 @@ public class EventSimulator {
         int energy = shark.getEnergy();
         energy -= 10;
         shark.setEnergy(energy);
+        checkEnergy(shark);
         checkStatus(shark);
     }
 
@@ -73,6 +77,7 @@ public class EventSimulator {
         }
         shark.setEnergy(energy);
         shark.setHealth(health);
+        checkEnergy(shark);
         checkStatus(shark);
     }
 
@@ -83,10 +88,20 @@ public class EventSimulator {
     }
 
     private boolean checkStatus(Shark shark) {
-        if (shark.getHealth() <=0 ) {
+        if (shark.getHealth() <= 0) {
             return false;
-        }else{
+        } else {
             return true;
+        }
+    }
+
+    private void checkEnergy(Shark shark) {
+        int health = shark.getHealth();
+        if (shark.getEnergy() <= 0) {
+            health -= 5;
+        }
+        if (health < 0) {
+            health = 0;
         }
     }
 }
