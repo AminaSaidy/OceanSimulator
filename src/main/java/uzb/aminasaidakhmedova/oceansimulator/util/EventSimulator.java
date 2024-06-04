@@ -24,6 +24,7 @@ public class EventSimulator {
             energy = 100;
         }
         shark.setEnergy(energy);
+        checkStatus(shark);
     }
 
     private void eatSeagull(Shark shark) {
@@ -33,6 +34,7 @@ public class EventSimulator {
         health += (shark.getFANGS() * 2);
         shark.setEnergy(energy);
         shark.setHealth(health);
+        checkStatus(shark);
     }
 
     private void eatDolphin(Shark shark) {
@@ -42,18 +44,21 @@ public class EventSimulator {
         health += (shark.getFANGS() * 5);
         shark.setEnergy(energy);
         shark.setHealth(health);
+        checkStatus(shark);
     }
 
     private void attackByHarpoon(Shark shark) {
         int health = shark.getHealth();
         health -= 10;
         shark.setHealth(health);
+        checkStatus(shark);
     }
 
     private void stuckInReefs(Shark shark) {
         int energy = shark.getEnergy();
         energy -= 10;
         shark.setEnergy(energy);
+        checkStatus(shark);
     }
 
     private void caughtByHunters(Shark shark) {
@@ -68,10 +73,21 @@ public class EventSimulator {
         }
         shark.setEnergy(energy);
         shark.setHealth(health);
+        checkStatus(shark);
     }
 
     private void eatenByWhale(Shark shark) {
         shark.setEnergy(0);
         shark.setHealth(0);
+        checkStatus(shark);
+    }
+
+    private boolean checkStatus(Shark shark) {
+        if (shark.getHealth() <=0 ) {
+            return false;
+        }else{
+            return true;
+        }
     }
 }
+
