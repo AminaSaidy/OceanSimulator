@@ -1,11 +1,13 @@
 package uzb.aminasaidakhmedova.oceansimulator.util;
 
+import uzb.aminasaidakhmedova.oceansimulator.model.Shark;
+
 public class EventSimulator {
 
     /*
     1-25 sleep -> +12 energy
-    25-40 ate smth small -> -5 energy, +FANGS*2 hp
-    40-52 ate smth big -> -8 energy, +FANGS*5 hp
+    25-40 ate a seagull-> -5 energy, +FANGS*2 hp
+    40-52 ate a dolphin -> -8 energy, +FANGS*5 hp
     52-60 hit with a harpoon -> -10 hp
     60-77 stuck in reefs -> -10 energy;
     77-90 broke a boat -> -10 energy; 1-40 there are people -> eat -> -6 energy +FANGS*5 hp; 40-100 no ppl, nothing
@@ -14,5 +16,22 @@ public class EventSimulator {
     */
 
     //if energy = 0 -> -5 hp; if hp = 0 -> dead
+
+    private void sleepEvent(Shark shark) {
+        int energy = shark.getEnergy();
+        energy += 12;
+        if (energy > 100) {
+            energy = 100;
+        }
+        shark.setEnergy(energy);
+    }
+
+    private void eatSeagull(Shark shark) {
+        int energy = shark.getEnergy();
+        int health = shark.getHealth();
+        energy -= 5;
+        health += (shark.getFANGS() * 2);
+    }
+
 
 }

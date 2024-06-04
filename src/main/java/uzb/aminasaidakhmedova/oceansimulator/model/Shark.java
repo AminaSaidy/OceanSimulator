@@ -4,7 +4,7 @@ public class Shark {
 
     private int energy = 100;
     private int health = 100;
-    private final double FANGS = 2.0;
+    private final int FANGS = 2;
 
     public void setEnergy(int energy) {
         this.energy = energy;
@@ -20,5 +20,9 @@ public class Shark {
 
     public int getHealth() {
         return this.health;
+    }
+
+    public int getFANGS() {
+        return FANGS;
     }
 }
