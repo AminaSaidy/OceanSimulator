@@ -44,10 +44,5 @@ public class EventSimulator {
         shark.setHealth(health);
     }
 
-    private void attackByHarpoon(Shark shark) {
-        int health = shark.getHealth();
-        health -= 10;
-        shark.setHealth(health);
-    }
 
 }
