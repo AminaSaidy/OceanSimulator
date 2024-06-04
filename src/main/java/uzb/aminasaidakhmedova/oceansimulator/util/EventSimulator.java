@@ -30,6 +30,8 @@ public class EventSimulator {
                 attackByHarpoon(shark);
             } else if (eventNumber >= 60 && eventNumber < 77) {
                 stuckInReefs(shark);
+            } else if (eventNumber >= 77 && eventNumber < 90) {
+                    attackBoat(shark);
             } else if (eventNumber >= 90 && eventNumber < 99) {
                 caughtByHunters(shark);
             } else if (eventNumber >= 99 && eventNumber <= 100) {
@@ -89,10 +91,10 @@ public class EventSimulator {
     private void attackBoat(Shark shark) {
         int energy = shark.getEnergy();
         int health = shark.getHealth();
-        int eatPeople = (int)(Math.random()*100);
-        if (eatPeople >= 0 && eatPeople <40) {
+        int eatPeople = (int) (Math.random() * 100);
+        if (eatPeople >= 0 && eatPeople < 40) {
             energy -= 6;
-            health += (shark.getFANGS()*5);
+            health += (shark.getFANGS() * 5);
         }
         shark.setEnergy(energy);
         shark.setHealth(health);
