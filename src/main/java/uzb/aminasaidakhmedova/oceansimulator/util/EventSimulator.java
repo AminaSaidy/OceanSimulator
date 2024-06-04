@@ -17,6 +17,27 @@ public class EventSimulator {
 
     //if energy = 0 -> -5 hp; if hp = 0 -> dead
 
+    public void startSimulator(Shark shark) {
+        while (checkStatus(shark)) {
+            int eventNumber = (int) (Math.random() * 100);
+            if (eventNumber >= 0 && eventNumber < 25) {
+                sleepEvent(shark);
+            } else if (eventNumber >= 25 && eventNumber < 40) {
+                eatSeagull(shark);
+            } else if (eventNumber >= 40 && eventNumber < 52) {
+                eatDolphin(shark);
+            } else if (eventNumber >= 52 && eventNumber < 60) {
+                attackByHarpoon(shark);
+            } else if (eventNumber >= 60 && eventNumber < 77) {
+                stuckInReefs(shark);
+            } else if (eventNumber >= 90 && eventNumber < 99) {
+                caughtByHunters(shark);
+            } else if (eventNumber >= 99 && eventNumber <= 100) {
+                eatenByWhale(shark);
+            }
+        }
+    }
+
     private void sleepEvent(Shark shark) {
         int energy = shark.getEnergy();
         energy += 12;
