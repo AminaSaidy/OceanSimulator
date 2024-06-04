@@ -31,7 +31,23 @@ public class EventSimulator {
         int health = shark.getHealth();
         energy -= 5;
         health += (shark.getFANGS() * 2);
+        shark.setEnergy(energy);
+        shark.setHealth(health);
     }
 
+    private void eatDolphin(Shark shark) {
+        int energy = shark.getEnergy();
+        int health = shark.getHealth();
+        energy -= 8;
+        health += (shark.getFANGS() * 5);
+        shark.setEnergy(energy);
+        shark.setHealth(health);
+    }
+
+    private void attackByHarpoon(Shark shark) {
+        int health = shark.getHealth();
+        health -= 10;
+        shark.setHealth(health);
+    }
 
 }
