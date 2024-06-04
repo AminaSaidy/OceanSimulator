@@ -37,6 +37,11 @@ public class EventSimulator {
             } else if (eventNumber >= 99 && eventNumber <= 100) {
                 eatenByWhale(shark);
             }
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
         }
         System.out.println("Shark died... RIP");
     }
