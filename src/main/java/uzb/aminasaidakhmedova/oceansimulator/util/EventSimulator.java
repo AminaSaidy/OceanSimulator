@@ -66,5 +66,12 @@ public class EventSimulator {
             energy = 0;
             health = 0;
         }
+        shark.setEnergy(energy);
+        shark.setHealth(health);
+    }
+
+    private void eatenByWhale(Shark shark) {
+        shark.setEnergy(0);
+        shark.setHealth(0);
     }
 }
